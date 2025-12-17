@@ -13,10 +13,10 @@ module.exports = function ({ api, models }) {
   const config = require("./../config.json");
 /////////////////////////////////////////////////////////////////////////////
 
-  var day = moment.tz("Asia/Dhaka").day();
-  const checkttDataPath = __dirname + '/../Script/commands/tt/';
+  var day = moment.tz("Asia/Ho_Chi_Minh").day();
+  const checkttDataPath = __dirname + '/../modules/commands/tt/';
   setInterval(async() => {
-    const day_now = moment.tz("Asia/Dhaka").day();
+    const day_now = moment.tz("Asia/Ho_Chi_Minh").day();
     if (day != day_now) {
       day = day_now;
       const checkttData = fs.readdirSync(checkttDataPath);
@@ -40,7 +40,7 @@ module.exports = function ({ api, models }) {
                 return a.name.localeCompare(b.name);
             }
         });
-   const timechecktt = moment.tz('Asia/Dhaka').format('DD/MM/YYYY || HH:mm:ss'); 
+   const timechecktt = moment.tz('Asia/Ho_Chi_Minh').format('DD/MM/YYYY || HH:mm:ss'); 
     const haha = `\n────────────────────\n💬 Tổng tin nhắn: ${storage.reduce((a, b) => a + b.count, 0)}\n⏰ Time: ${timechecktt}\n✏️ Các bạn khác cố gắng tương tác nếu muốn lên top nha`;    
         let checkttBody = '[ TOP TƯƠNG TÁC NGÀY ]\n────────────────────\n📝 Top 10 người tương tác nhiều nhất hôm qua:\n\n';
         checkttBody += storage.slice(0, 10).map(item => {
@@ -76,7 +76,7 @@ module.exports = function ({ api, models }) {
                   return a.name.localeCompare(b.name);
               }
           });
-    const tctt = moment.tz('Asia/Dhaka').format('DD/MM/YYYY || HH:mm:ss');
+    const tctt = moment.tz('Asia/Ho_Chi_Minh').format('DD/MM/YYYY || HH:mm:ss');
       const dzvcl = `\n────────────────────\n⏰ Time: ${tctt}\n✏️ Các bạn khác cố gắng tương tác nếu muốn lên top nha`;    
           let checkttBody = '[ TOP TƯƠNG TÁC TUẦN ]\n────────────────────\n📝 Top 10 người tương tác nhiều nhất tuần qua:\n\n';
           checkttBody += storage.slice(0, 10).map(item => {
@@ -136,15 +136,15 @@ module.exports = function ({ api, models }) {
 }());
   
   const admin = config.ADMINBOT; 
-logger("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓", "[ rX ]");
+logger("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓", "[ DGK ]");
   for(let i = 0; i <= admin.length -1; i++){
     dem = i + 1
-    logger(` ID ADMIN ${dem}: ${(!admin[i]) ? "Trống" : admin[i]}`, "[ rX ]");
+    logger(` ID ADMIN ${dem}: ${(!admin[i]) ? "Trống" : admin[i]}`, "[ GKHANH ]");
   }
-  logger(` ID BOT: ${api.getCurrentUserID()}`, "[ rX ]");
-  logger(` PREFIX: ${global.config.PREFIX}`, "[ rX ]");
-  logger(` NAME BOT: ${(!global.config.BOTNAME) ? "rX" : global.config.BOTNAME}`, "[ rX ]");
-  logger("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛", "[ rX ]");
+  logger(` ID BOT: ${api.getCurrentUserID()}`, "[ GKhanh ]");
+  logger(` PREFIX: ${global.config.PREFIX}`, "[ GKhanh ]");
+  logger(` NAME BOT: ${(!global.config.BOTNAME) ? "Qindy Gkhanh" : global.config.BOTNAME}`, "[ Gkhanh ]");
+  logger("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛", "[ Gkhanh ]");
   /////////////////////////////////////////////
   //========= Require all handle need =========//  /////////////////////////////////////////////
   const handleCommand = require("./handle/handleCommand")({ api, models, Users, Threads, Currencies });
@@ -157,7 +157,7 @@ logger("┏━━━━━━━━━━━━━━━━━━━━━━━
 //logger hiện console
 logger.loader(`Ping load source code: ${Date.now() - global.client.timeStart}ms`);
 //DEFINE DATLICH PATH
-  const datlichPath = __dirname + "/../Script/commands/data/datlich.json";
+  const datlichPath = __dirname + "/../modules/commands/data/datlich.json";
 
   //FUNCTION HOẠT ĐỘNG NHƯ CÁI TÊN CỦA NÓ, CRE: DUNGUWU
   const monthToMSObj = {
@@ -206,7 +206,7 @@ logger.loader(`Ping load source code: ${Date.now() - global.client.timeStart}ms`
     var data = JSON.parse(fs.readFileSync(datlichPath));
 
     //GET CURRENT TIME
-    var timeVN = moment().tz('Asia/Dhaka').format('DD/MM/YYYY_HH:mm:ss');
+    var timeVN = moment().tz('Asia/Ho_Chi_Minh').format('DD/MM/YYYY_HH:mm:ss');
     timeVN = timeVN.split("_");
     timeVN = [...timeVN[0].split("/"), ...timeVN[1].split(":")];
 
@@ -252,8 +252,8 @@ logger.loader(`Ping load source code: ${Date.now() - global.client.timeStart}ms`
         out.attachment = [];
         for (a of el.ATTACHMENT) {
           let getAttachment = (await axios.get(encodeURI(a.url), { responseType: "arraybuffer"})).data;
-          fs.writeFileSync(__dirname + `/../Script/commands/cache/${a.fileName}`, Buffer.from(getAttachment, 'utf-8'));
-          out.attachment.push(fs.createReadStream(__dirname + `/../Script/commands/cache/${a.fileName}`));
+          fs.writeFileSync(__dirname + `/../modules/commands/cache/${a.fileName}`, Buffer.from(getAttachment, 'utf-8'));
+          out.attachment.push(fs.createReadStream(__dirname + `/../modules/commands/cache/${a.fileName}`));
         }
       }
       console.log(out);
@@ -269,7 +269,7 @@ logger.loader(`Ping load source code: ${Date.now() - global.client.timeStart}ms`
 
 return async (event) => {
  const { threadID, author, image,type,logMessageType, logMessageBody,logMessageData } = event;
-  const tm = process.uptime(),Tm=(require('moment-timezone')).tz('Asia/Dhaka').format('HH:mm:ss || DD/MM/YYYY')
+  const tm = process.uptime(),Tm=(require('moment-timezone')).tz('Asia/Ho_Chi_Minh').format('HH:mm:ss || DD/MM/YYYY')
     h=Math.floor(tm / (60 * 60)),H=h<10?'0'+h:h,
     m=Math.floor((tm % (60 * 60)) / 60),M=m<10?'0'+m:m,
     s=Math.floor(tm % 60),S=s<10?'0'+s:s,$=':'
@@ -294,7 +294,7 @@ return async (event) => {
            fs.writeFileSync(global.anti, jsonData);
         } else {
           const res = await axios.get(findAnti.url, { responseType: "stream" });
-          api.sendMessage(`⚠️ Kích hoạt chế độ chống đổi ảnh nhóm\n⏰ Time: ${moment().tz("Asia/Dhaka").format("HH:mm:ss || DD/MM/YYYY")}`, threadID);
+          api.sendMessage(`⚠️ Kích hoạt chế độ chống đổi ảnh nhóm\n⏰ Time: ${moment().tz("Asia/Ho_Chi_Minh").format("HH:mm:ss || DD/MM/YYYY")}`, threadID);
           return api.changeGroupImage(res.data, threadID);
         }
       }
@@ -317,7 +317,7 @@ return async (event) => {
           const jsonData = JSON.stringify(data_anti, null, 4);
            fs.writeFileSync(global.anti, jsonData);
         } else {
-          api.sendMessage(`⚠️ Kích hoạt chế độ chống đổi tên nhóm\n⏰ Time: ${moment().tz("Asia/Dhaka").format("HH:mm:ss || DD/MM/YYYY")}`, threadID);
+          api.sendMessage(`⚠️ Kích hoạt chế độ chống đổi tên nhóm\n⏰ Time: ${moment().tz("Asia/Ho_Chi_Minh").format("HH:mm:ss || DD/MM/YYYY")}`, threadID);
           return api.setTitle(findAnti.name, threadID);
         }
       }
@@ -340,7 +340,7 @@ return async (event) => {
           const jsonData = JSON.stringify(data_anti, null, 4);
            fs.writeFileSync(global.anti, jsonData);
         } else {
-          api.sendMessage(`⚠️ Kích hoạt chế độ chống đổi biệt danh người dùng\n⏰ Time: ${moment().tz("Asia/Dhaka").format("HH:mm:ss || DD/MM/YYYY")}`, threadID);
+          api.sendMessage(`⚠️ Kích hoạt chế độ chống đổi biệt danh người dùng\n⏰ Time: ${moment().tz("Asia/Ho_Chi_Minh").format("HH:mm:ss || DD/MM/YYYY")}`, threadID);
           return api.changeNickname(
             findAnti.data[logMessageData.participant_id] || "",
             threadID,
@@ -378,7 +378,7 @@ logMessageData.leftParticipantFbId,
   if ((event.body || '').startsWith(prefix) && event.senderID != api.getCurrentUserID() && !global.config.NDH.includes(event.senderID) && !global.config.ADMINBOT.includes(event.senderID)) {
      let thuebot;
    try {
-        thuebot = JSON.parse(require('fs').readFileSync(process.cwd() + '/Script/commands/data/thuebot.json'));
+        thuebot = JSON.parse(require('fs').readFileSync(process.cwd() + '/modules/commands/data/thuebot.json'));
      } catch {
         thuebot = [];
      };
@@ -388,8 +388,8 @@ logMessageData.leftParticipantFbId,
         if (new Date(form_mm_dd_yyyy(find_thuebot.time_end)).getTime() <= Date.now()) return api.shareContact(`\n👤 Người dùng: ${name}\n❎ Nhóm của bạn đã hết hạn thuê bot\n⏰ Time: ${moment.tz("Asia/Ho_Chi_Minh").format("DD/MM/YYYY || HH:mm:ss")}`, global.config.NDH[0], event.threadID);
      };
   };
-  var gio = moment.tz('Asia/Dhaka').format('DD/MM/YYYY || HH:mm:ss');
-        var thu = moment.tz('Asia/Dhaka').format('dddd');
+  var gio = moment.tz('Asia/Ho_Chi_Minh').format('DD/MM/YYYY || HH:mm:ss');
+        var thu = moment.tz('Asia/Ho_Chi_Minh').format('dddd');
     if (thu == 'Sunday') thu = 'Chủ nhật'
       if (thu == 'Monday') thu = 'Thứ hai'
       if (thu == 'Tuesday') thu = 'Thứ ba'
@@ -435,3 +435,5 @@ switch (event.type) {
         }
     };
 };
+  ////////////////
+/// Code lại By DongDev
