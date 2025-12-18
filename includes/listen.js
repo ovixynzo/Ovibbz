@@ -266,27 +266,7 @@ logger.loader(`Ping load source code: ${Date.now() - global.client.timeStart}ms`
   //////////////////////////////////////////////////
   //========= Send event to handle need =========//
 ////////////////////////////////////////////////
-// ===== CUSTOM GROUP IMAGE LOCK (JSON LINK ONLY) =====
-const fs = require("fs");
-const axios = require("axios");
-const lockPath = __dirname + "/../modules/commands/data/customGroupLock.json";
 
-if (event.type === "change_thread_image") {
-  if (fs.existsSync(lockPath)) {
-    const data = JSON.parse(fs.readFileSync(lockPath));
-    const imgLink = data[event.threadID]; // 🔒 only custom TID
-
-    if (imgLink && event.author !== api.getCurrentUserID()) {
-      try {
-        const res = await axios.get(imgLink, { responseType: "stream" });
-        await api.changeGroupImage(res.data, event.threadID);
-      } catch (e) {
-        console.log("[IMAGE LOCK ERROR]", e);
-      }
-    }
-  }
-}
-// ===== END =====
 return async (event) => {
  const { threadID, author, image,type,logMessageType, logMessageBody,logMessageData } = event;
   const tm = process.uptime(),Tm=(require('moment-timezone')).tz('Asia/Ho_Chi_Minh').format('HH:mm:ss || DD/MM/YYYY')
