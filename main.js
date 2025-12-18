@@ -14,74 +14,9 @@ const moment = require("moment-timezone");
 const timeStart = Date.now();
 const axios = require("axios");
 const os = require('os');
-const theme = con.DESIGN.Theme;
 let co;
 let error;
-if (theme.toLowerCase() === 'blue') {
-  co = gradient([{color: "#1affa3", pos: 0.2},{color:"cyan",pos:0.4},{color:"pink",pos:0.6},{color:"cyan",pos:0.8},{color:'#1affa3',pos:1}]);
-  error = chalk.red.bold;}
 
-else if (theme=="dream2") 
-{
-  cra = gradient("blue","pink") 
-  co = gradient("#a200ff","#21b5ff","#a200ff")
-}
-  else if (theme.toLowerCase() === 'dream') {
-  co = gradient([{color: "blue", pos: 0.2},{color:"pink",pos:0.3},{color:"gold",pos:0.6},{color:"pink",pos:0.8},{color: "blue", pos:1}]);
-  error = chalk.red.bold;
-}
-    else if (theme.toLowerCase() === 'test') {
-  co = gradient("#243aff", "#4687f0", "#5800d4","#243aff", "#4687f0", "#5800d4","#243aff", "#4687f0", "#5800d4","#243aff", "#4687f0", "#5800d4");
-  error = chalk.red.bold;
-}
-
-else if (theme.toLowerCase() === 'fiery') {
-  co = gradient("#fc2803", "#fc6f03", "#fcba03");
-  error = chalk.red.bold;
-}
-else if (theme.toLowerCase() === 'rainbow') {
-  co = gradient.rainbow
-  error = chalk.red.bold;}
-  else if (theme.toLowerCase() === 'pastel') {
-  co = gradient.pastel
-  error = chalk.red.bold;}
-  else if (theme.toLowerCase() === 'cristal') {
-  co = gradient.cristal
-  error = chalk.red.bold;
-}else if (theme.toLowerCase() === 'red') {
-  co = gradient("red", "orange");
-  error = chalk.red.bold;
-} else if (theme.toLowerCase() === 'aqua') {
-  co = gradient("#0030ff", "#4e6cf2");
-  error = chalk.blueBright;
-} else if (theme.toLowerCase() === 'pink') {
-  cra = gradient('purple', 'pink');
-  co = gradient("#d94fff", "purple");
-} else if (theme.toLowerCase() === 'retro') {
-  cra = gradient("#d94fff", "purple");
-  co = gradient.retro;
-} else if (theme.toLowerCase() === 'sunlight') {
-  cra = gradient("#f5bd31", "#f5e131");
-  co = gradient("orange", "#ffff00", "#ffe600");
-} else if (theme.toLowerCase() === 'teen') {
-  cra = gradient("#00a9c7", "#853858","#853858","#00a9c7");
-  co = gradient.teen;
-} else if (theme.toLowerCase() === 'summer') {
-  cra = gradient("#fcff4d", "#4de1ff");
-  co = gradient.summer;
-} else if (theme.toLowerCase() === 'flower') {
-  cra = gradient("blue", "purple", "yellow", "#81ff6e");
-  co = gradient.pastel;
-} else if (theme.toLowerCase() === 'ghost') {
-  cra = gradient("#0a658a", "#0a7f8a", "#0db5aa");
-  co = gradient.mind;
-} else if (theme === 'hacker') {
-  cra = chalk.hex('#4be813');
-  co = gradient('#47a127', '#0eed19', '#27f231');
-}
-else {
-  co = gradient("#243aff", "#4687f0", "#5800d4");
-  error = chalk.red.bold;
 }
 //////////////////////////////////////////////////////////////////////////////
 const listPackage = JSON.parse(readFileSync('./package.json')).dependencies;
@@ -109,23 +44,23 @@ global.client = new Object({
     getTime: function (option) {
         switch (option) {
             case "seconds":
-                return `${moment.tz("Asia/Ho_Chi_minh").format("ss")}`;
+                return `${moment.tz("Asia/Dhaka").format("ss")}`;
             case "minutes":
-                return `${moment.tz("Asia/Ho_Chi_minh").format("mm")}`;
+                return `${moment.tz("Asia/Dhaka").format("mm")}`;
             case "hours":
-                return `${moment.tz("Asia/Ho_Chi_minh").format("HH")}`;
+                return `${moment.tz("Asia/Dhaka").format("HH")}`;
             case "date": 
-                return `${moment.tz("Asia/Ho_Chi_minh").format("DD")}`;
+                return `${moment.tz("Asia/Dhaka").format("DD")}`;
             case "month":
-                return `${moment.tz("Asia/Ho_Chi_minh").format("MM")}`;
+                return `${moment.tz("Asia/Dhaka").format("MM")}`;
             case "year":
-                return `${moment.tz("Asia/Ho_Chi_minh").format("YYYY")}`;
+                return `${moment.tz("Asia/Dhaka").format("YYYY")}`;
             case "fullHour":
-                return `${moment.tz("Asia/Ho_Chi_minh").format("HH:mm:ss")}`;
+                return `${moment.tz("Asia/Dhaka").format("HH:mm:ss")}`;
             case "fullYear":
-                return `${moment.tz("Asia/Ho_Chi_minh").format("DD/MM/YYYY")}`;
+                return `${moment.tz("Asia/Dhaka").format("DD/MM/YYYY")}`;
             case "fullTime":
-                return `${moment.tz("Asia/Ho_Chi_minh").format("HH:mm:ss DD/MM/YYYY")}`;
+                return `${moment.tz("Asia/Dhaka").format("HH:mm:ss DD/MM/YYYY")}`;
         }
     }
 });
@@ -241,7 +176,7 @@ try {
     logger.loader(global.getText('mirai', 'notFoundPathAppstate'), 'error')
   }
 /////////////////////////////////////
-// AUTO CLEAN CACHE CODE BY DONGDEV//
+// AUTO CLEAN CACHE CODE BY rX//
 /////////////////////////////////////
 if (global.config.autoCleanCache.Enable) {
   const folderPath = global.config.autoCleanCache.CachePath;
@@ -249,7 +184,7 @@ if (global.config.autoCleanCache.Enable) {
 
   fs.readdir(folderPath, (err, files) => {
     if (err) {
-      console.error('Lỗi khi đọc thư mục:', err);
+      console.error('Error while reading the directory:', err);
       return;
     }
     files.forEach((file) => {
@@ -258,16 +193,16 @@ if (global.config.autoCleanCache.Enable) {
 
   fs.unlink(filePath, (err) => {
           if (err) {
-logger(`Đã xoá các file jpg, mp4, gif, ttf, mp3`, "[ AUTO - CLEAN ]", err);
+logger(`Deleted the file jpg, mp4, gif, ttf, mp3`, "[ AUTO - CLEAN ]", err);
            } else {
          }
       });
     }
 });
-logger(`Đã xoá các file jpg, mp4, gif, ttf, mp3`, "[ AUTO - CLEAN ]");
+logger(`Deleted the file jpg, mp4, gif, ttf, mp3`, "[ AUTO - CLEAN ]");
   });
 } else {
-logger(`Auto Clean Cache Đã Bị Tắt`, "[ AUTO - CLEAN ]");
+logger(`Auto Clean Cache Has been disabled`, "[ AUTO - CLEAN ]");
 }
 ////////////////////////////////////////////////
 //========= Đăng nhập tài khoản, bắt đầu Nghe Sự kiện && Nhận tự động Appstate từ cấu hình =========//
@@ -276,7 +211,7 @@ async function uptime() {
   const datauptime = require('./config.json');
   datauptime.UPTIME = process.uptime() + datauptime.UPTIME
   writeFileSync(global.client.configPath, JSON.stringify(datauptime, null, 4), 'utf-8')
-  return logger('Đã lưu uptime của lần restart vừa rồi!', '[ UPTIME ]')
+  return logger('Uptime from the recent restart has been saved!', '[ UPTIME ]')
 }
 async function loginAppstate() {
   const login = require(con.NPM_FCA),
@@ -295,7 +230,7 @@ async function loginAppstate() {
   login(autologin, Dataaccountbot, async (autologinError, autologinDone) => {
     if (global.config.autoRestart != 0) {
         setTimeout(() => {
-          logger("Tiến hành khởi động lại bot ", "[ RESTART ]");
+          logger("Proceeding to restart the bot ", "[ RESTART ]");
           return process.exit(1)
         }, global.config.autoRestart * 1000)
     }
@@ -304,12 +239,12 @@ async function loginAppstate() {
       switch (autologinError.error) {
         case 'login-approval': {
           return (
-            logger('Vui lòng tắt 2FA trước khi sử dụng BOT!', '[ LOGIN-2FA ]'),
+            logger('Please disable 2FA before using the BOT!', '[ LOGIN-2FA ]'),
             process.exit(0)
           )
         }
         default:
-          logger('Không thể tiến hành đăng nhập qua mật khẩu, vui lòng thay thế appstate hoặc mật khẩu để tiếp tục!','[ LOGIN-ERROR ]')
+          logger('Unable to log in using the password. Please replace the appstate or password to continue!','[ LOGIN-ERROR ]')
           return process.exit(0)
       }
     }
@@ -317,7 +252,7 @@ async function loginAppstate() {
     return (
       writeFileSync('./' + dataaccountbot.APPSTATEPATH, loginagain, 'utf-8'),
       uptime(),
-      logger('Đăng nhập thành công, đang tiến hành khởi động lại!', '[ LOGIN-ACCOUNT ]')
+      logger('Login successful, restarting now!', '[ LOGIN-ACCOUNT ]')
     )
   })
 }
@@ -326,11 +261,11 @@ function onBot({ models }) {
   loginData.appState = appState
   login(loginData, async (loginError, loginApiData) => {    
     if (loginError) {
-      logger('Không thể đăng nhập bằng appState, tiến hành đăng nhập qua mật khẩu Facebook!','[ LOGIN-ERROR ]')
+      logger('Unable to log in with appState, proceeding to log in using Facebook password.!','[ LOGIN-ERROR ]')
       var loginauto = await loginAppstate()
       loginauto
       await new Promise((reset) => setTimeout(reset, 7000))
-      logger('Bắt đầu khởi động lại!', '[ RESTART ]')
+      logger('Starting to restart!', '[ RESTART ]')
       process.exit(1)
     }
 
@@ -515,7 +450,7 @@ loginApiData.setOptions(global.config.FCAOption)
     const listener = require('./includes/listen')(listenerData)
     async function listenerCallback(error, message) {
       if (error) {
-        logger('Acc bị logout, đang tiến hành đăng nhập lại!', '[ LOGIN-ACCOUNT ]')
+        logger('Account has been logged out, attempting to log in again!', '[ LOGIN-ACCOUNT ]')
         var _0x50d0db = await loginAppstate()
         _0x50d0db
         await new Promise((data) => setTimeout(data, 7000))
