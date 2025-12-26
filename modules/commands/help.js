@@ -88,10 +88,10 @@ module.exports.run = async function ({ api, event, args }) {
     }
 
     msg += `⭔ Type ${global.config.PREFIX}help [command] to see details\n`;
-    msg += `╭─[⋆˚🦋𝐌𝐚𝐫𝐢𝐚 × 𝐫𝐗🎀⋆˚]\n`;
-    msg += `╰‣ 𝐀𝐝𝐦𝐢𝐧 : 𝐫𝐗 𝐀𝐛𝐝𝐮𝐥𝐥𝐚𝐡\n`;
-    msg += `╰‣ 𝐑𝐢𝐩𝐨𝐫𝐭 : !callad (yourmsg)\n`;
-    msg += `╰‣ 𝐓𝐲𝐩𝐞 !help2 𝐭𝐨 𝐬𝐞𝐞 𝐧𝐞𝐱𝐭 𝐩𝐚𝐠𝐞\n`;
+    msg += `╭─[⋆˚🦋তোমাগো × লাং ]\n`;
+    msg += `╰‣ 𝐀𝐝𝐦𝐢𝐧 : Tamim Bbz\n`;
+    msg += g += `╰‣ 𝐑𝐢𝐩𝐨𝐫𝐭 : /callad (you\n`;
+    msg += `╰‣ 𝐓𝐲𝐩𝐞 /help2 𝐭𝐨 𝐬𝐞𝐞 𝐧𝐞𝐱𝐭 𝐩𝐚𝐠𝐞\n`;
     // Attach random GIF for both pages
     let attachment = null;
     const cache = path.join(__dirname, "noprefix");
