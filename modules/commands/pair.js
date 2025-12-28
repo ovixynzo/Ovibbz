@@ -78,7 +78,7 @@ module.exports.run = async function ({ api, event }) {
   const { threadID, messageID, senderID, mentions, type, messageReply } = event;
 
   if (global.creditChanged) {
-    api.sendMessage("⚡️ Credit was changed respect rX Abdullah", threadID);
+    api.sendMessage("⚡️ 𝗖𝗿𝗲𝗱𝗶𝘁 𝘄𝗮𝘀 𝗰𝗵𝗮𝗻𝗴𝗲𝗱 𝗿𝗲𝘀𝗽𝗲𝗰𝘁 𝗧𝗮𝗺𝗶𝗺 𝗕𝗯𝘇", threadID);
     global.creditChanged = false;
   }
 
@@ -119,7 +119,7 @@ module.exports.run = async function ({ api, event }) {
   let one = senderID, two = partnerID;
   return makeImage({ one, two }).then(path => {
     api.sendMessage({
-      body: `🥰 Successful Pairing!\n💌 Wishing you two a lifetime of unexpected happiness – even with a ${matchRate} match!\n💕 Compatibility Score: ${matchRate}\nUnlikely but Unstoppable: [${senderName} + ${partnerName}]👨‍❤️‍👨`,
+      body: `🥰 𝗦𝘂𝗰𝗰𝗲𝘀𝘀𝗳𝘂𝗹𝗹 𝗣𝗮𝗶𝗿𝗶𝗻𝗴!\n💌 𝗪𝗶𝘀𝗵𝗶𝗻𝗴 𝘆𝗼𝘂 𝘁𝘄𝗼 𝗮 𝗹𝗶𝗳𝗲𝘁𝗶𝗺𝗲 𝗼𝗳 𝘂𝗻𝗲𝘅𝗽𝗲𝗰𝘁𝗲𝗱 𝗵𝗮𝗽𝗽𝗶𝗻𝗲𝘀𝘀 – 𝗲𝘃𝗲𝗻 𝘄𝗶𝘁𝗵 𝗮 ${matchRate} 𝗠𝗮𝘁𝗰𝗵!\n💕 𝗖𝗼𝗺𝗽𝗹𝗮𝘁𝗶𝗻𝗴 𝗦𝗰𝗼𝗿𝗲: ${matchRate}\n𝗨𝗻𝗹𝘂𝗰𝗸𝘆 𝗯𝘂𝘁 𝗨𝗻𝘀𝘁𝗼𝗽𝗶𝗯𝗮𝗹𝗹: [${senderName} + ${partnerName}]👨‍❤️‍👨`,
       mentions: mentionsArr,
       attachment: fs.createReadStream(path)
     }, threadID, () => fs.unlinkSync(path), messageID);
