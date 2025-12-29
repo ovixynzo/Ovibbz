@@ -69,7 +69,7 @@ module.exports.config = {
   name: "paste",
   version: "2.0.0",
   hasPermssion: 2,               // ✅ শুধুই BOT ADMIN
-  credits: "rX | Maria",
+  credits: "rX | Tamim bbz",
   description: "টেক্সট/এরর লগ Pastebin-এ পেস্ট করে লিংক দেয় (শুধু অ্যাডমিন)",
   commandCategory: "Utility",
   usages: "paste <text> | reply paste",
