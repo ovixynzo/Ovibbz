@@ -4,7 +4,7 @@ module.exports.config = {
   name: "bot",
   version: "3.0.0",
   hasPermssion: 0,
-  credits: "rX Abdullah edit by Tamim Bbz",
+  credits: "rX | 𝗺𝗼𝗱𝗶𝗳𝘆 𝗯𝘆 𝗯𝗯𝘇 ",
   description: "Maria custom frame only first time, then normal AI chat",
   commandCategory: "noprefix",
   usages: "ai",
@@ -88,7 +88,7 @@ module.exports.handleEvent = async function({ api, event, Users }) {
       api.setMessageReaction("✅", messageID, () => {}, true);
 
       return api.sendMessage(
-        withMarker("👑 My creator rX Abdullah unhone muje banaya hai"),
+        withMarker("👑 𝗠𝘆 𝗰𝗿𝗲𝗮𝘁𝗶𝗲  𝗧𝗮𝗺𝗶𝗺 𝗯𝗯𝘇 𝘂𝗻𝗵𝗼𝗻𝗼𝗻𝗲 𝗺𝘂𝗷𝗲 𝗯𝗮𝗻𝗮𝘆𝗮 𝗵𝗲𝗮"),
         threadID,
         messageID
       );
