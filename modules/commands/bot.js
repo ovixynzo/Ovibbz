@@ -4,7 +4,7 @@ module.exports.config = {
   name: "bot",
   version: "3.0.0",
   hasPermssion: 0,
-  credits: "rX | 𝗺𝗼𝗱𝗶𝗳𝘆 𝗯𝘆 𝗯𝗯𝘇 ",
+  credits: "rX | 𝗺𝗼𝗱𝗶𝗳𝘆 𝗯𝘆 𝗢𝘃𝗶 𝗯𝗯𝘇 ",
   description: "Maria custom frame only first time, then normal AI chat",
   commandCategory: "noprefix",
   usages: "ai",
@@ -31,7 +31,7 @@ const customReplies = [
   "আমি আবাল দের সাথে কথা বলি না😒",
   "এতো ডেকো না, প্রেমে পরে যাবো 🙈",
   "বার বার ডাকলে মাথা গরম হয়ে যায়😑",
-  "𝐓𝐨𝐫 𝐧𝐚𝐧𝐢𝐫 𝐮𝐢𝐝 𝐦𝐞 𝐝𝐞 𝐤𝐡𝐚𝐢 𝐝𝐢 𝐚𝐦𝐢 🦆",
+  "𝗠𝗮𝗶𝘆𝗮 𝗵𝗼𝗶𝗹𝗲 𝗮𝗺𝗿 𝗷𝗮𝗻 𝗼𝘃𝗶 𝗿𝗲 𝗺𝗲𝘀𝘀𝗮𝗴𝗲 𝗱𝗲",
   "এতো ডাকছিস কেন? গালি শুনবি নাকি? 🤬"
 ];
 
@@ -88,7 +88,7 @@ module.exports.handleEvent = async function({ api, event, Users }) {
       api.setMessageReaction("✅", messageID, () => {}, true);
 
       return api.sendMessage(
-        withMarker("👑 𝗠𝘆 𝗰𝗿𝗲𝗮𝘁𝗶𝗲  𝗧𝗮𝗺𝗶𝗺 𝗯𝗯𝘇 𝘂𝗻𝗵𝗼𝗻𝗼𝗻𝗲 𝗺𝘂𝗷𝗲 𝗯𝗮𝗻𝗮𝘆𝗮 𝗵𝗲𝗮"),
+        withMarker("👑 𝗠𝘆 𝗰𝗿𝗲𝗮𝘁𝗶𝗲  𝗢𝘃𝗶 𝗯𝗯𝘇 𝘂𝗻𝗵𝗼𝗻𝗼𝗻𝗲 𝗺𝘂𝗷𝗲 𝗯𝗮𝗻𝗮𝘆𝗮 𝗵𝗲𝗮"),
         threadID,
         messageID
       );
@@ -114,7 +114,7 @@ module.exports.handleEvent = async function({ api, event, Users }) {
       let reply = resp.data?.answer?.text || "🙂 I didn't understand.";
 
       // Replace OpenAI → rX Abdullah
-      reply = reply.replace(/openai/gi, "𝗧𝗮𝗺𝗶𝗺 𝗕𝗯𝘇");
+      reply = reply.replace(/openai/gi, "𝗢𝘃𝗶 𝗕𝗯𝘇");
 
       sessions[senderID].history += reply + "\n";
 
