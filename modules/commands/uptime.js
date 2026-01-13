@@ -53,7 +53,7 @@ module.exports.config = {
   name: "up",
   version: "1.0.6",
   hasPermssion: 0,
-  credits: "Rx | 𝗺𝗼𝗱𝗶𝗳𝘆 𝗯𝘆 𝗯𝗯𝘇",
+  credits: "Rx | 𝗺𝗼𝗱𝗶𝗳𝘆 𝗯𝘆 𝗠𝘆 𝘅𝗮𝗻 𝗼𝘃𝗶",
   usePrefix: true,
   description: "Bot status image",
   commandCategory: "system",
