@@ -15,7 +15,7 @@ module.exports.config = {
   name: "baby",
   version: "1.0.7",
   hasPermssion: 0,
-  credits: "rX edit by tamim bbz",
+  credits: "rX edit by ovi bbz",
   description: "AI auto teach with Teach & List  support + Typing effect", //Better then all simsimi
   commandCategory: "chat",
   usages: "[query]",
@@ -44,7 +44,7 @@ module.exports.run = async function ({ api, event, args, Users }) {
     if (args[0] === "list") {
       const res = await axios.get(`${simsim}/list`);
       return api.sendMessage(
-        `╭─╼🌟 𝐁𝐚𝐛𝐲 𝐀𝐈 𝐒𝐭𝐚𝐭𝐮𝐬\n├ 📝 𝐓𝐞𝐚𝐜𝐡𝐞𝐝 𝐐𝐮𝐞𝐬𝐭𝐢𝐨𝐧𝐬: ${res.data.totalQuestions}\n├ 📦 𝐒𝐭𝐨𝐫𝐞𝐝 𝐑𝐞𝐩𝐥𝐢𝐞𝐬: ${res.data.totalReplies}\n╰─╼👤 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫: 𝐓𝐚𝐦𝐢𝐦 𝐁𝐛𝐳`,
+        `╭─╼🌟 𝐁𝐚𝐛𝐲 𝐀𝐈 𝐒𝐭𝐚𝐭𝐮𝐬\n├ 📝 𝐓𝐞𝐚𝐜𝐡𝐞𝐝 𝐐𝐮𝐞𝐬𝐭𝐢𝐨𝐧𝐬: ${res.data.totalQuestions}\n├ 📦 𝐒𝐭𝐨𝐫𝐞𝐝 𝐑𝐞𝐩𝐥𝐢𝐞𝐬: ${res.data.totalReplies}\n╰─╼👤 𝐃𝐞𝐯𝐞𝐥𝐨𝐩𝐞𝐫: 𝐎𝐯𝐢 𝐁𝐛𝐳`,
         event.threadID,
         event.messageID
       );
