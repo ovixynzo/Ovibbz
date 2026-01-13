@@ -88,8 +88,8 @@ module.exports.run = async function ({ api, event, args }) {
     }
 
     msg += `⭔ Type ${global.config.PREFIX}help [command] to see details\n`;
-    msg += `╭─[⋆˚তোমাগো × লাং🎀⋆˚]\n`;
-    msg += `╰‣ 𝐀𝐝𝐦𝐢𝐧 : Tamim Bbz\n`;
+    msg += `╭─[⋆˚𝗢𝘃𝗶𝗿 𝗯𝗼𝘄⋆˚]\n`;
+    msg += `╰‣ 𝐀𝐝𝐦𝐢𝐧 : Ovi bbz\n`;
     msg += `╰‣ 𝐑𝐢𝐩𝐨𝐫𝐭 : /callad (yourmsg)\n`;
     msg += `╰‣ 𝐓𝐲𝐩𝐞 /help2 𝐭𝐨 𝐬𝐞𝐞 𝐧𝐞𝐱𝐭 𝐩𝐚𝐠𝐞\n`;
     // Attach random GIF for both pages
